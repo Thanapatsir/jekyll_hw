@@ -1,0 +1,23 @@
+---
+layout: post
+title:  "[GUIDE] Clink new meta"
+date:   2016-03-26 17:15:22 +0700
+categories: jekyll update
+---
+
+### THE “NEW” BUILD
+
+![alt text](http://riki.dotabuff.net/c/5ba83927eb5deda1975c460aa6695c39281657fb/687474703a2f2f692e696d6775722e636f6d2f544566556538572e706e67 "Lone druid")
+
+Ever since the rework of Searing Arrows a new build has emerged, which has greatly solidified Clinkz’s position as a tempo control hero with high split-pushing capabilities. This build allows the hero to become one of the strongest 1v1 heroes in the game as well as take towers extremely fast.
+
+Soul Ring Soul Ring/Medallion of Courage Medallion of Courage+Desolator Desolator gives a decent mana sustain and incredible amounts of damage to a purely auto-attacking hero. This build can be often complemented with a Ring of Aquila Ring of Aquila or even Drum of Endurance Drum of Endurance if extra stats are necessary.
+
+Later progression is completely dependant on the line-up Clinkz is facing. More often than not, it will involve a Black King Bar Black King Bar which is a staple item for most core heroes. Some of the unorthodox yet effective options include Blink Dagger Blink Dagger, which provides the hero with immense amounts of extra mobility, and Scythe of Vyse Scythe of Vyse, which is a rare pick-up on non-intelligence heroes, but is heavily underrated as a general core item.
+
+Diffusal Blade Diffusal Blade deserves a special mention, since more often than not it will be one of the best choices. Not only does it provide a decent DPS boost, but it also can serve as a way of escaping Dust of Appearance Dust of Appearance and later on as a way to deal with Ghost Scepter Ghost Scepters. Being prepared in advance for potential disruptions to the plan of solo pick-offs is necessary to maintain good tempo control. It is important to note, however, that using it as a generic slow is ill-advised, due to the limited nature of the Diffusal Blade Diffusal Blade.
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

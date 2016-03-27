@@ -1,0 +1,44 @@
+---
+layout: post
+title:  "[NOTES] Security 2"
+date:   2016-03-26 17:15:22 +0700
+categories: jekyll update
+---
+
+### Intranet and Admin security
+
+Normally, we use www.example.com/admin which can be hack easily. what if we add the complexity in accessing the admin interface by using special sub-domain like admin.app.com
+
+we could also introduce a special password for a very serious action before performing it
+
+Moreover, we could limit the access area to only certain source IP addresses. (but can be counter by proxy anyway)
+
+### User Management
+instead of implementing your own, it is advisable to use common plug-ins and more importantly is to keep them up-to-date.
+
+### Brute-Forcing Accounts
+Brute-force attacks is trial and error attacks on the login credentials.
+1. an automatic program may find the correct password in a matter of minutes
+2. PROTECTION introduce forgot-password pages.
+2. PROTECTION introduce CAPTCHA after number of failed logins from certain IP addr.
+3. This may not be a 100% solution but increase the barrier of attack.
+
+### Logging
+1. by default rails logs of all requests are made to the web app and may contain security issue (may contain login credential, credit card number)
+2. PROTECTION filter certain request parameters from your log files by appending them to config.filter_parameters in app config. These parameters will mark as [FILTERED] in the log. ( example = config.filter_parameters << :password )
+
+### good password
+
+1. use a long alphanumeric combination of mixed cases.
+
+### Privilege Escalation
+
+1. NORMAL (@project = Project.find(param:[id]))
+2. BETTER (@project = @current_user.projects.find(params[:id]))
+
+## Injection
+
+
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/

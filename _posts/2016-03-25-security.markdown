@@ -1,0 +1,75 @@
+---
+layout: post
+title:  "[NOTES] Security notes"
+date:   2016-03-26 17:15:22 +0700
+categories: jekyll update
+---
+
+### What is SSL?
+
+SSL = Secure sockets Layer
+SSL allows sensitive information such as credit card numbers, login credentials to be transmitted securely between server and client.
+
+More specifically, SSL is a security protocol. Protocols describe how algorithms should be used; in this case, the SSL protocol determines variables of the encryption for both the link and the data being transmitted.
+
+When browsers interact with secured web servers using SSL protocol. its mean that the browser and server need SSL certificate to be able to establish secure connection.
+
+1. Browser connects to a web server (website) secured with SSL (https). browser request server to identify itself. <br>
+2. server sends a copy of it's SSL certificate including server public key.<br>
+3. browser check certificate root against list of trusted CAs (check for expireation, and other thing) if the it trusts the certificate. it creates, encrypts, and sends back a symmetric session key using the server public key.<br>
+4. server decrypt the session key using it private key.<br>
+5. Server and Browser now encrypts all transmitted data with session key.<br>
+
+### Session Hijacking
+1. stealing user's session id and use it as victim's name.<br>
+2. the method used are man-in-the-middle attack. <br>
+
+#### man-in-the-middle attack
+first common method would be providing free router(wifi).
+when you attempt to connect to other website using that router, the attacker could intercept the transmitted data. <br>
+another method would be to act like fake server. For example, the attacker might fake a bank website. When victim input data, the attacker also use that data to pull actual data from bank server and retrieve it back to victim while storing all the data to himself.<br>
+
+3. Only protection is SSL but not 100% sure. <br>
+
+### Session fixation
+1. make user think they are using their own account while they are not
+2. to clarify, the hacker fix user session id known by the hacker
+
+#### step explanation
+1. hacker create valid session id (by accessing wanted server)
+2. copy session id in cookies and keep accessing the web app to keep the session alive
+3. lure the victim into their own javascript injected website (xss method)
+4. when javascript file triggered, the victim id will change into the hacker session id
+5. after that victim and hacker can co-use the same session id
+6. PROTECTION user must reset_session before login and logout
+
+### Cross-Site Request Forgery (CSRF)
+1. Making direct request to server with less javascript or none.
+2. Also known as one-click-attack
+3. basically, hacker lure/force victim to execute unwanted actions on web app.
+4. hacker attacks target state-changing request not theft of data.
+5. most common goal are to perform state changing reequest like transferring funds or change their email address or anything associate to victim account.
+6. PROTECTION use get,post,patch,put,del appropriately (avoid get request that could change app state)
+7. PROTECTION use security token in non-GET requests but beware of XSS (in rails, using protect_from_forgery with: :exception)
+8. PROTECTION
+<strong>
+    rescue_from ActionController::InvalidAuthenticityToken do |exception|
+          sign_out_user # Example method that will destroy the user cookies
+    end
+</strong>
+
+### redirection
+1. hacker change the redirect url to his/her own phishing website
+2. PROTECTION dis-allow user to supply redirect url
+
+### file upload
+1. Make sure file uploads don't overwrite important files, and process media files asynchronously.
+ * EG. ../../../etc/passwd
+2. Executable code in file uploads
+3. PROTECTION dont place file uploads in rails /public dir if its apache's home dir
+
+
+ 
+[jekyll-docs]: http://jekyllrb.com/docs/home
+[jekyll-gh]:   https://github.com/jekyll/jekyll
+[jekyll-talk]: https://talk.jekyllrb.com/
